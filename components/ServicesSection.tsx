@@ -2,17 +2,17 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Cloud, 
-  Code2, 
-  Smartphone, 
-  Globe, 
-  MapPin, 
-  CreditCard, 
-  ArrowRight, 
-  CheckCircle2, 
-  Sparkles, 
-  Tag, 
+import {
+  Cloud,
+  Code2,
+  Smartphone,
+  Globe,
+  MapPin,
+  CreditCard,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  Tag,
   ShieldCheck,
   Zap,
   ChevronRight,
@@ -78,7 +78,7 @@ const SERVICES: ServiceItem[] = [
     badgeColor: 'bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/30',
     description: 'High-performance iOS Swift & Android native applications, Flutter cross-platform mobile apps, push notifications, and App Store publishing.',
     tags: ['iOS Swift', 'Android', 'Flutter', 'Push Notifications', 'App Store'],
-    quoteText: 'Custom Quote • From ₦200,000',
+    quoteText: 'Custom Quote • From ₦500,000',
     highlights: [
       'Seamless Flutter cross-platform mobile experiences',
       'Native push notifications & offline sync capabilities',
@@ -112,7 +112,7 @@ const SERVICES: ServiceItem[] = [
     badgeColor: 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30',
     description: 'Interactive Nigeria 36 States & 774 LGAs GeoJSON choropleth maps, D3.js data visualizations, electoral territory breakdowns, and sales mapping.',
     tags: ['Nigeria GeoJSON', '774 LGAs', 'Choropleth', 'D3.js', 'Spatial Data'],
-    quoteText: 'Custom Quote • From ₦95,000',
+    quoteText: 'Custom Quote • From ₦250,000',
     highlights: [
       'High-resolution 36 Nigerian state vector layers & 774 LGAs',
       'Click-to-drilldown demographic & sales territory maps',
@@ -129,7 +129,7 @@ const SERVICES: ServiceItem[] = [
     badgeColor: 'bg-teal-500/10 dark:bg-teal-500/20 text-teal-700 dark:text-teal-300 border-teal-500/30',
     description: 'Smart inline Paystack checkout, USSD (*737#), automated cryptographic invoice PDF generator, instant receipts, and webhook listeners.',
     tags: ['Paystack API', 'USSD *737#', 'Invoices', 'Webhooks', 'PDF Generator'],
-    quoteText: 'Custom Quote • From ₦45,000',
+    quoteText: 'Custom Quote • From 35,000',
     highlights: [
       'Paystack inline modal with card, USSD & transfer options',
       'Automated cryptographic invoice PDF generator',
@@ -142,7 +142,7 @@ export const ServicesSection: React.FC = () => {
   return (
     <section className="py-16 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800 transition-colors">
           <div>
@@ -178,7 +178,7 @@ export const ServicesSection: React.FC = () => {
                 style={{ animationDelay: `${(index + 1) * 100}ms` }}
               >
                 <div className="space-y-4">
-                  
+
                   {/* Top Bar: Icon & Price Quote Badge */}
                   <div className="flex items-center justify-between gap-3">
                     <div className={`w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center ${service.iconColor} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md`}>
