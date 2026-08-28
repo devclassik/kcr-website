@@ -138,7 +138,8 @@ curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-clip">
+
       <Navbar />
 
       <main className="flex-1 py-16 relative">

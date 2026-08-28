@@ -3,14 +3,14 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { 
-  Zap, 
-  Sparkles, 
-  CreditCard, 
-  Grid, 
-  ArrowRight, 
-  ShieldCheck, 
-  CheckCircle2, 
+import {
+  Zap,
+  Sparkles,
+  CreditCard,
+  Grid,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
   Terminal,
   Activity,
   Cpu
@@ -25,10 +25,10 @@ export const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column Text Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            
+
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700/80 backdrop-blur-md shadow-md transition-colors duration-300">
               <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 dark:bg-indigo-400 animate-ping" />
@@ -46,28 +46,29 @@ export const Hero: React.FC = () => {
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
               <strong className="text-slate-900 dark:text-white font-semibold block mb-1">Kolamajawole C-Renee Ent Ltd — Building Solutions. Deploying Success.</strong>
-              Supercharge your web & mobile applications with turnkey GeoJSON map choropleths (Nigeria 36 States/774 LGAs, Africa, World), TinyMCE rich text blog editors, and custom enterprise software engineering.
+              Supercharge your web & mobile applications with turnkey GeoJSON map choropleths (Nigeria 36 States/774 LGAs, Africa, World), Rich text blog editors, and custom enterprise software engineering.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/plugins"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm btn-purple-glow"
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm btn-purple-glow btn-shimmer-relative group"
               >
-                <Grid className="w-5 h-5" />
+                <Grid className="w-5 h-5 icon-spin-hover" />
                 <span>Explore Plugins Catalog</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
+                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/contact"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm btn-cyber-outline"
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm btn-cyber-outline group"
               >
-                <CreditCard className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <CreditCard className="w-5 h-5 text-indigo-600 dark:text-indigo-400 icon-spin-hover" />
                 <span>Request Tech Engineering</span>
               </Link>
             </div>
+
 
             {/* Trust Features Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
@@ -77,7 +78,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-xs text-slate-700 dark:text-slate-300">TinyMCE Blog Editors</span>
+                <span className="text-xs text-slate-700 dark:text-slate-300">Rich Text Blog Editors</span>
               </div>
               <div className="flex items-center gap-2">
                 <Activity className="w-4 h-4 text-sky-600 dark:text-sky-400" />
@@ -89,8 +90,8 @@ export const Hero: React.FC = () => {
 
           {/* Right Column: High Tech Visual Panel */}
           <div className="lg:col-span-5 relative">
-            <div className="glass-panel p-6 rounded-3xl relative z-10 border border-slate-200 dark:border-slate-800 shadow-2xl animate-float">
-              
+            <div className="glass-panel p-6 rounded-3xl relative z-10 border border-slate-200 dark:border-slate-800 shadow-2xl animate-float card-border-glow">
+
               {/* Header Bar */}
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-2">
@@ -107,7 +108,7 @@ export const Hero: React.FC = () => {
 
               {/* Simulated Plugin Showcase Panel */}
               <div className="space-y-4">
-                
+
                 {/* Active Map Plugin Card */}
                 <div className="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex items-center justify-between transition-colors">
                   <div className="flex items-center gap-3">

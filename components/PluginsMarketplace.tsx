@@ -124,20 +124,24 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
 
         {/* Plugins Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPlugins.map(plugin => {
+          {filteredPlugins.map((plugin, index) => {
             const IconComponent = getIcon(plugin.iconName);
             return (
               <div
                 key={plugin.id}
-                className="glass-panel glass-panel-hover rounded-3xl p-6 flex flex-col justify-between group"
+                data-aos="zoom-in-up"
+                data-aos-delay={(index % 3) * 100}
+                className="glass-panel glass-panel-hover rounded-3xl p-6 flex flex-col justify-between group card-border-glow"
               >
+
                 <div className="space-y-4">
                   
                   {/* Top Row: Icon & Badge */}
                   <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-100 to-purple-100 dark:from-[#1D0C42] dark:to-[#2E1260] border border-indigo-300 dark:border-[#A855F7]/40 flex items-center justify-center text-indigo-600 dark:text-[#C084FC] group-hover:scale-105 transition-transform shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-100 to-purple-100 dark:from-[#1D0C42] dark:to-[#2E1260] border border-indigo-300 dark:border-[#A855F7]/40 flex items-center justify-center text-indigo-600 dark:text-[#C084FC] icon-spin-hover shrink-0">
                       <IconComponent className="w-6 h-6" />
                     </div>
+
 
                     {plugin.badge && (
                       <span className="px-2.5 py-1 text-[9px] font-mono font-bold uppercase tracking-wider rounded-full bg-pink-500/10 dark:bg-[#EC4899]/20 text-pink-600 dark:text-[#F472B6] border border-pink-500/30 dark:border-[#EC4899]/40 shadow-sm shrink-0">

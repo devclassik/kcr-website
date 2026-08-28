@@ -174,14 +174,16 @@ export const ServicesSection: React.FC = () => {
             return (
               <div
                 key={service.id}
-                className={`glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-5 border border-slate-200 dark:border-slate-800 relative overflow-hidden group bg-gradient-to-br ${service.gradient} animate-fade-in-up`}
-                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                data-aos="fade-up"
+                data-aos-delay={(index + 1) * 100}
+                className={`glass-panel glass-panel-hover rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-5 border border-slate-200 dark:border-slate-800 relative overflow-hidden group bg-gradient-to-br ${service.gradient} card-border-glow`}
               >
+
                 <div className="space-y-4">
 
                   {/* Top Bar: Icon & Price Quote Badge */}
                   <div className="flex items-center justify-between gap-3">
-                    <div className={`w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center ${service.iconColor} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md`}>
+                    <div className={`w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center ${service.iconColor} shadow-md icon-spin-hover`}>
                       <Icon className="w-6 h-6" />
                     </div>
 
@@ -230,14 +232,14 @@ export const ServicesSection: React.FC = () => {
 
                 </div>
 
-                {/* Footer Action Button */}
-                <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+                {/* Card Action Button */}
+                <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
                   <Link
                     href={`/contact?service=${encodeURIComponent(service.title)}`}
-                    className="w-full py-2.5 rounded-xl text-xs font-bold btn-purple-glow flex items-center justify-center gap-2 group-hover:shadow-indigo-500/40 cursor-pointer"
+                    className="w-full py-3 rounded-2xl text-xs font-bold btn-purple-glow btn-shimmer-relative flex items-center justify-center gap-2 group/btn cursor-pointer"
                   >
                     <span>Get Custom Quote</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 text-white group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
 

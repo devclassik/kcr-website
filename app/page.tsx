@@ -48,7 +48,8 @@ export default function HomePage() {
   const unpaidCount = invoices.filter(i => i.status === 'UNPAID' || i.status === 'OVERDUE').length;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-hidden">
+    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-clip">
+
       
       {/* Top Navbar */}
       <Navbar

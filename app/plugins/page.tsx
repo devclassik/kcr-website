@@ -16,7 +16,8 @@ export default function PluginsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-clip">
+
       <Navbar />
       <main className="flex-1 space-y-12">
         <PluginsMarketplace

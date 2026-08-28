@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
           {/* Left Form Panel */}
-          <div className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-[#A855F7]/40 transition-colors flex flex-col justify-between shadow-xl">
+          <div data-aos="fade-right" className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-[#A855F7]/40 transition-colors flex flex-col justify-between shadow-xl">
             {submitted ? (
               <div className="py-12 text-center space-y-4 my-auto">
                 <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 dark:bg-[#10B981]/20 border border-emerald-500 text-emerald-600 dark:text-[#10B981] flex items-center justify-center">
@@ -146,17 +146,19 @@ export const ContactForm: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-2xl font-extrabold text-sm btn-purple-glow flex items-center justify-center gap-2 cursor-pointer mt-4"
+                  className="w-full py-3.5 rounded-2xl font-extrabold text-sm btn-purple-glow btn-shimmer-relative flex items-center justify-center gap-2 cursor-pointer mt-4 group"
                 >
-                  <Send className="w-4 h-4 text-white" />
+                  <Send className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                   <span>Submit Ticket to Core Team</span>
                 </button>
+
               </form>
             )}
           </div>
 
           {/* Right Direct Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+          <div data-aos="fade-left" className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+
 
 
             {/* Contact Card 1 */}

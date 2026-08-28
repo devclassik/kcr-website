@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AOSProvider } from "@/components/AOSProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -66,10 +67,13 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased selection:bg-[#7C3AED] selection:text-white transition-colors duration-300`}
       >
         <ThemeProvider>
-          {children}
+          <AOSProvider>
+            {children}
+          </AOSProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
 
