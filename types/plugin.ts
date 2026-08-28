@@ -28,4 +28,6 @@ export interface WebAppPlugin {
   features: string[];
   configOptions: PluginOption[];
   badge?: string;
+  previewImage?: string;
 }
+

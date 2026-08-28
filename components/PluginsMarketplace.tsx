@@ -164,11 +164,27 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
                     </div>
                   </div>
 
+                  {/* Plugin Visual Preview Image */}
+                  {plugin.previewImage && (
+                    <div className="w-full h-36 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 relative group-hover:border-indigo-500/50 transition-all duration-300 shadow-sm bg-slate-950">
+                      <img
+                        src={plugin.previewImage}
+                        alt={`${plugin.name} Preview`}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                        <span className="text-[10px] font-mono text-white bg-indigo-600/90 px-2 py-0.5 rounded-md backdrop-blur-sm">
+                          Live UI Preview
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Tagline */}
                   <p className="text-xs text-slate-600 dark:text-[#9CA3AF] leading-relaxed line-clamp-2">
                     {plugin.tagline}
                   </p>
+
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5 pt-1">

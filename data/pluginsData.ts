@@ -19,7 +19,9 @@ export const INITIAL_PLUGINS: WebAppPlugin[] = [
     active: true,
     price: '₦45,000 / license',
     badge: 'BEST SELLER',
+    previewImage: '/plugins/nigeria-map.jpg',
     tags: ['Nigeria', 'Maps', 'Choropleth', 'GeoJSON', 'States', 'LGAs', 'GIS', 'React'],
+
     features: [
       'Pre-rendered SVG GeoJSON vector layers for all 36 States & FCT Abuja',
       '774 LGA drill-down with sub-second vector rendering',
@@ -64,6 +66,7 @@ export const INITIAL_PLUGINS: WebAppPlugin[] = [
     active: true,
     price: '₦65,000 / license',
     badge: 'HOT',
+    previewImage: '/plugins/world-africa-map.jpg',
     tags: ['Africa', 'World Map', 'Choropleth', 'D3.js', 'Vector Maps', 'ECOWAS', 'GIS'],
     features: [
       'Vector maps for all 54 African countries & 195 World nations',
@@ -100,6 +103,7 @@ export const INITIAL_PLUGINS: WebAppPlugin[] = [
     active: true,
     price: '₦35,000 / license',
     badge: 'FEATURED',
+    previewImage: '/plugins/tinymce-editor.jpg',
     tags: ['TinyMCE', 'Blog Editor', 'WYSIWYG', 'Rich Text', 'Next.js', 'CMS', 'Markdown'],
     features: [
       'TinyMCE 7 + Markdown dual-mode editing toolbar',
@@ -144,7 +148,9 @@ export const INITIAL_PLUGINS: WebAppPlugin[] = [
     active: true,
     price: 'Free Integration Module',
     badge: 'ESSENTIAL',
+    previewImage: '/plugins/paystack-gateway.jpg',
     tags: ['Paystack', 'Payments', 'Invoices', 'Cards', 'USSD', 'Webhooks'],
+
     features: [
       'Paystack Inline modal with card, USSD, and bank transfer support',
       'Automated SHA512 webhook verification for Next.js App Router',

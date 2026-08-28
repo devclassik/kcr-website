@@ -1,4 +1,3 @@
-'use me';
 'use client';
 
 import React, { useState } from 'react';
@@ -51,12 +50,12 @@ export const ContactForm: React.FC = () => {
         </div>
 
         {/* Form & Info Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
           {/* Left Form Panel */}
-          <div className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-[#A855F7]/40 transition-colors">
+          <div className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-[#A855F7]/40 transition-colors flex flex-col justify-between shadow-xl">
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
+              <div className="py-12 text-center space-y-4 my-auto">
                 <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 dark:bg-[#10B981]/20 border border-emerald-500 text-emerald-600 dark:text-[#10B981] flex items-center justify-center">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -75,91 +74,93 @@ export const ContactForm: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Send Enterprise Inquiry</h3>
+              <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col justify-between">
+                <div className="space-y-5">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Send Enterprise Inquiry</h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-900 dark:text-white">Full Name *</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Funke Akindele"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-900 dark:text-white">Work Email *</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="kolamajawole@gmail.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-900 dark:text-white">Company / Project</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Lagos Tech Arena"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-900 dark:text-white">Inquiry Type</label>
+                      <select
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                      >
+                        <option value="Paystack Integration Consultation">Paystack Integration Consultation</option>
+                        <option value="Custom WebApp Plugin Request">Custom WebApp Plugin Request</option>
+                        <option value="Enterprise Invoicing & Webhook SLA">Enterprise Invoicing & Webhook SLA</option>
+                        <option value="Security & Fraud Shield Audit">Security & Fraud Shield Audit</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-900 dark:text-white">Full Name *</label>
-                    <input
-                      type="text"
+                    <label className="text-xs font-bold text-slate-900 dark:text-white">Message / Technical Specs *</label>
+                    <textarea
+                      rows={6}
                       required
-                      placeholder="e.g. Funke Akindele"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Describe your platform requirements, expected monthly payment volume, or plugin needs..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
                     />
                   </div>
-
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-900 dark:text-white">Work Email *</label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="kolamajawole@gmail.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
-                    />
-                  </div>
-
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-900 dark:text-white">Company / Project</label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Lagos Tech Arena"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-900 dark:text-white">Inquiry Type</label>
-                    <select
-                      value={subject}
-                      onChange={(e) => setSubject(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                    >
-                      <option value="Paystack Integration Consultation">Paystack Integration Consultation</option>
-                      <option value="Custom WebApp Plugin Request">Custom WebApp Plugin Request</option>
-                      <option value="Enterprise Invoicing & Webhook SLA">Enterprise Invoicing & Webhook SLA</option>
-                      <option value="Security & Fraud Shield Audit">Security & Fraud Shield Audit</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-900 dark:text-white">Message / Technical Specs *</label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Describe your platform requirements, expected monthly payment volume, or plugin needs..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
-                  />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-2xl font-extrabold text-sm btn-purple-glow flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 rounded-2xl font-extrabold text-sm btn-purple-glow flex items-center justify-center gap-2 cursor-pointer mt-4"
                 >
                   <Send className="w-4 h-4 text-white" />
-                  <span>Submit Ticket</span>
+                  <span>Submit Ticket to Core Team</span>
                 </button>
               </form>
             )}
           </div>
 
           {/* Right Direct Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+
 
             {/* Contact Card 1 */}
-            <div className="glass-panel p-6 rounded-3xl space-y-4">
+            <div className="glass-panel p-6 rounded-3xl space-y-4 border border-slate-200 dark:border-slate-800 shadow-md">
               <h4 className="text-sm font-mono font-bold uppercase text-indigo-600 dark:text-[#C084FC] flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
                 <span>Headquarters & Labs</span>
@@ -181,7 +182,6 @@ export const ContactForm: React.FC = () => {
                   </a>
                 </div>
 
-
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-indigo-600 dark:text-[#C084FC]" />
                   <span className="font-mono text-slate-900 dark:text-white">+234 (0) 1 800-KCR-NIG</span>
@@ -189,10 +189,54 @@ export const ContactForm: React.FC = () => {
               </div>
             </div>
 
+            {/* Contact Card 2: Support SLA & Resolution Guarantee */}
+            <div className="glass-panel p-6 rounded-3xl space-y-4 border border-indigo-500/30 dark:border-[#A855F7]/30 shadow-md bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5">
+
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>Support SLA & Resolution Guarantee</span>
+                </h4>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" title="Engineers Active" />
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold font-mono flex items-center justify-center shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-white">24/7 Response Guarantee</p>
+                    <p className="text-slate-600 dark:text-slate-400 mt-0.5">Round-the-clock platform support & engineer dispatch</p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold font-mono flex items-center justify-center shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-white">&lt; 15 Min Resolution Time</p>
+                    <p className="text-slate-600 dark:text-slate-400 mt-0.5">Sub-15 minute average ticket resolution for high-priority items</p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-slate-100/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-sky-500/10 text-sky-600 dark:text-sky-400 font-bold font-mono flex items-center justify-center shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 dark:text-white">99.99% Webhook & API SLA</p>
+                    <p className="text-slate-600 dark:text-slate-400 mt-0.5">Zero downtime guarantee for Paystack payment webhooks</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
 
         </div>
+
 
         {/* FAQ Accordion Section */}
         <div className="space-y-6 pt-10 border-t border-slate-200 dark:border-[#A855F7]/20">
@@ -227,7 +271,6 @@ export const ContactForm: React.FC = () => {
             })}
           </div>
         </div>
-
 
       </div>
     </section>
