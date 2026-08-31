@@ -1,47 +1,44 @@
-'use client';
+import type { Metadata } from 'next';
+import { MetricsClient } from '@/components/MetricsClient';
 
-import React, { useState } from 'react';
-import { Navbar } from '../../components/Navbar';
-import { Footer } from '../../components/Footer';
-import { InvoiceHub } from '../../components/InvoiceHub';
-import { INITIAL_INVOICES } from '../../data/invoicesData';
-import { Invoice } from '../../types/invoice';
+export const metadata: Metadata = {
+  title: 'Platform Metrics, Invoicing & Trust Hub',
+  description:
+    'Live payment metrics, automated invoice generator, Paystack settlement SLA monitoring, and transaction reconciliation for KCR Nig Ltd plugins.',
+  keywords: [
+    'Platform Metrics',
+    'Paystack Invoicing Hub',
+    'KCR Revenue Engine',
+    'Payment Verification SLA',
+    'Automated Invoicing Nigeria',
+  ],
+  alternates: {
+    canonical: 'https://kolacrenee.com/metrics',
+  },
+  openGraph: {
+    title: 'Platform Metrics & Trust Hub | KCR Nig Ltd',
+    description:
+      'Real-time metrics, invoice generation, and Paystack settlement engine for WebApp plugins.',
+    url: 'https://kolacrenee.com/metrics',
+    siteName: 'KCR Nig Ltd',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'KCR Nig Ltd Platform Metrics',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Platform Metrics & Invoicing Hub | KCR Nig Ltd',
+    description:
+      'Live metrics, Paystack gateway monitoring, and automated invoice verification.',
+    images: ['/og-image.png'],
+  },
+};
 
 export default function MetricsPage() {
-  const [invoices, setInvoices] = useState<Invoice[]>(INITIAL_INVOICES);
-
-  const handleCreateInvoice = (newInv: Invoice) => {
-    setInvoices(prev => [newInv, ...prev]);
-  };
-
-  const handlePaymentSuccess = (invoiceId: string, paystackRef: string, paymentMethod: string) => {
-    setInvoices(prev =>
-      prev.map(inv => {
-        if (inv.id === invoiceId) {
-          return {
-            ...inv,
-            status: 'PAID',
-            paystackRef,
-            paidAt: new Date().toLocaleString(),
-            paymentChannel: paymentMethod
-          };
-        }
-        return inv;
-      })
-    );
-  };
-
-  return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-primary)] transition-colors duration-300 flex flex-col justify-between overflow-x-hidden">
-      <Navbar />
-      <main className="flex-1">
-        <InvoiceHub
-          invoices={invoices}
-          onCreateInvoice={handleCreateInvoice}
-          onPaymentSuccess={handlePaymentSuccess}
-        />
-      </main>
-      <Footer />
-    </div>
-  );
+  return <MetricsClient />;
 }
