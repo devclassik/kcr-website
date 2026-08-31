@@ -170,7 +170,7 @@ export const Hero: React.FC = () => {
         {/* Bottom Metrics Bar */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-3xl bg-slate-100/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 backdrop-blur-xl shadow-xl transition-colors duration-300">
           <div className="text-center space-y-1">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">₦48,500,000+</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">500,000+</div>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">Paystack Volume Processed</div>
           </div>
           <div className="text-center space-y-1 border-l border-slate-200 dark:border-slate-800">

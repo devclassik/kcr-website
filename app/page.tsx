@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Empower your WebApp with interactive SVG/D3 choropleth maps of Nigeria (36 States & 774 LGAs), Africa, World maps, TinyMCE 7 rich text blog editors, and Paystack smart payment gateways.',
   alternates: {
-    canonical: 'https://kcrnigltd.com',
+    canonical: 'https://kolacrenee.com.ng',
   },
   openGraph: {
     title: 'KCR Nig Ltd - Interactive Maps & WebApp Plugin Engine',
     description:
       'Turnkey GeoJSON map choropleths for Nigeria 36 States/774 LGAs, Africa, TinyMCE blog editors, and enterprise software engineering.',
-    url: 'https://kcrnigltd.com',
+    url: 'https://kolacrenee.com.ng',
     siteName: 'KCR Nig Ltd',
     images: [
       {
@@ -69,7 +69,7 @@ export default function HomePage() {
         },
         author: {
           '@type': 'Organization',
-          name: 'Kolamajawole C-Renee Ent Ltd',
+          name: 'Kolamajawole C-Renee Nig Ltd',
         },
       },
     })),
