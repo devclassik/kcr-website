@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     'Kolamajawole C-Renee Ent Ltd Support',
   ],
   alternates: {
-    canonical: 'https://kcrnigltd.com/contact',
+    canonical: 'https://kolacrenee.com.ng/contact',
   },
   openGraph: {
     title: 'Contact Us | KCR Nig Ltd Software Engineering',
     description:
       'Partner with Kolamajawole C-Renee Ent Ltd for enterprise software engineering, bespoke GIS maps, and Paystack solutions.',
-    url: 'https://kcrnigltd.com/contact',
+    url: 'https://kolacrenee.com.ng/contact',
     siteName: 'KCR Nig Ltd',
     images: [
       {
@@ -47,7 +47,7 @@ export default function ContactPage() {
     name: 'Contact KCR Nig Ltd',
     description:
       'Official contact and engineering request portal for Kolamajawole C-Renee Ent Ltd.',
-    url: 'https://kcrnigltd.com/contact',
+    url: 'https://kolacrenee.com.ng/contact',
     mainEntity: {
       '@type': 'Organization',
       name: 'Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd)',

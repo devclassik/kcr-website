@@ -80,7 +80,7 @@ export async function POST(req: Request) {
     body: JSON.stringify({
       email,
       amount: amount * 100, // Amount in kobo
-      callback_url: 'https://kcrnigltd.com/metrics',
+      callback_url: 'https://kolacrenee.com.ng/metrics',
       metadata: { invoiceId }
     })
   });
@@ -169,27 +169,24 @@ curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
                   <button
                     key={s.num}
                     onClick={() => setActiveStep(s.num)}
-                    className={`p-6 rounded-3xl text-left border transition-all duration-300 relative overflow-hidden group cursor-pointer animate-fade-in-up ${
-                      isCurrent
+                    className={`p-6 rounded-3xl text-left border transition-all duration-300 relative overflow-hidden group cursor-pointer animate-fade-in-up ${isCurrent
                         ? 'bg-indigo-600/10 dark:bg-[#180A38] border-indigo-600 dark:border-[#C084FC] shadow-[0_0_30px_rgba(99,102,241,0.25)] scale-105'
                         : 'glass-panel border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 hover:bg-slate-100/50 dark:hover:bg-slate-900/50'
-                    }`}
+                      }`}
                     style={{ animationDelay: `${(index + 1) * 100}ms` }}
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div
-                        className={`w-11 h-11 rounded-2xl flex items-center justify-center font-extrabold text-sm transition-transform group-hover:scale-110 ${
-                          isCurrent
+                        className={`w-11 h-11 rounded-2xl flex items-center justify-center font-extrabold text-sm transition-transform group-hover:scale-110 ${isCurrent
                             ? 'bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-md'
                             : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
-                        }`}
+                          }`}
                       >
                         {s.num}
                       </div>
                       <div
-                        className={`p-2 rounded-xl transition-colors ${
-                          isCurrent ? 'bg-sky-500/20 text-sky-600 dark:text-[#00F0FF]' : 'text-slate-400'
-                        }`}
+                        className={`p-2 rounded-xl transition-colors ${isCurrent ? 'bg-sky-500/20 text-sky-600 dark:text-[#00F0FF]' : 'text-slate-400'
+                          }`}
                       >
                         <Icon className="w-5 h-5" />
                       </div>
@@ -263,11 +260,10 @@ curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
                   <button
                     key={tab}
                     onClick={() => setActiveCodeTab(tab)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-mono uppercase font-bold transition-all cursor-pointer ${
-                      activeCodeTab === tab
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-mono uppercase font-bold transition-all cursor-pointer ${activeCodeTab === tab
                         ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
                         : 'text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white'
-                    }`}
+                      }`}
                   >
                     {tab}
                   </button>

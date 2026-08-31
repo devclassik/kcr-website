@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     'WebApp Billing Engine',
   ],
   alternates: {
-    canonical: 'https://kcrnigltd.com/how-it-works',
+    canonical: 'https://kolacrenee.com.ng/how-it-works',
   },
   openGraph: {
     title: 'How It Works & Developer Integration | KCR Nig Ltd',
     description:
       'Step-by-step developer guide for KCR WebApp Plugins and Paystack Gateway verification.',
-    url: 'https://kcrnigltd.com/how-it-works',
+    url: 'https://kolacrenee.com.ng/how-it-works',
     siteName: 'KCR Nig Ltd',
     images: [
       {

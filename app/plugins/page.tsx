@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     'Kolamajawole C-Renee Ent Ltd',
   ],
   alternates: {
-    canonical: 'https://kcrnigltd.com/plugins',
+    canonical: 'https://kolacrenee.com.ng/plugins',
   },
   openGraph: {
     title: 'WebApp Plugins Directory | KCR Nig Ltd',
     description:
       'Turnkey GeoJSON maps for Nigeria 36 States & 774 LGAs, Africa, TinyMCE blog editors, and Paystack payment modules.',
-    url: 'https://kcrnigltd.com/plugins',
+    url: 'https://kolacrenee.com.ng/plugins',
     siteName: 'KCR Nig Ltd',
     images: [
       {
@@ -49,7 +49,7 @@ export default function PluginsPage() {
     name: 'KCR WebApp Plugins Directory',
     description:
       'Directory of production-ready WebApp plugins for GIS maps, blog editors, and Paystack integration.',
-    url: 'https://kcrnigltd.com/plugins',
+    url: 'https://kolacrenee.com.ng/plugins',
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: INITIAL_PLUGINS.map((plugin, index) => ({
@@ -57,7 +57,7 @@ export default function PluginsPage() {
         position: index + 1,
         name: plugin.name,
         description: plugin.tagline,
-        url: `https://kcrnigltd.com/plugins#${plugin.slug}`,
+        url: `https://kolacrenee.com.ng/plugins#${plugin.slug}`,
       })),
     },
   };
