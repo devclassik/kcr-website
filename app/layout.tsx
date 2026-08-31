@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kcrnigltd.com"),
   title: "KCR Nig Ltd - Interactive Maps, Blog Editors & WebApp Plugins",
-  description: "Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd) - Turnkey GeoJSON maps (Nigeria 36 States/774 LGAs, Africa, World), TinyMCE blog editors, and custom software engineering.",
-  keywords: ["KCR Nig Ltd", "Kolamajawole C-Renee Ent Ltd", "Nigeria State Map", "LGA GeoJSON", "World Map Plugin", "TinyMCE Blog Editor", "Software Engineering", "WebApp Plugins"],
+  description: "Kolamajawole C-Renee Nig Ltd (KCR Nig Ltd) - Turnkey GeoJSON maps (Nigeria 36 States/774 LGAs, Africa, World), TinyMCE blog editors, and custom software engineering.",
+  keywords: ["KCR Nig Ltd", "Kolamajawole C-Renee Nig Ltd", "Nigeria State Map", "LGA GeoJSON", "World Map Plugin", "TinyMCE Blog Editor", "Software Engineering", "WebApp Plugins"],
   openGraph: {
     title: "KCR Nig Ltd - Interactive Maps & WebApp Plugin Engine",
     description: "Building solutions. Deploying success. Interactive Map Breakdowns, TinyMCE blog editors, and enterprise software engineering.",
