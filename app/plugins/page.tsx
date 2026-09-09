@@ -3,10 +3,15 @@ import { PluginsClient } from '@/components/PluginsClient';
 import { INITIAL_PLUGINS } from '@/data/pluginsData';
 
 export const metadata: Metadata = {
-  title: 'WebApp Plugins Directory - Nigeria GIS Maps, TinyMCE & Paystack',
+  title: 'WebApp Plugins Directory - devclassic-rbac, devclassic-notify, GIS Maps & Editors',
   description:
-    'Browse turnkey Next.js & React plugins: Nigeria 36 State & 774 LGA GeoJSON maps, World/Africa Choropleth modules, TinyMCE 7 rich text blog editors, and Paystack Smart Gateways.',
+    'Browse turnkey Next.js & React plugins: devclassic-rbac (Enterprise permission engine), devclassic-notify (Omnichannel Email/SMS/Push suite), devclassic-map (Nigeria 36 State & 774 LGA GeoJSON), and TinyMCE 7 rich text blog editors.',
   keywords: [
+    'devclassic-rbac',
+    'devclassic-notify',
+    'devclassic-map',
+    'RBAC Plugin React',
+    'Notification Engine Next.js',
     'Nigeria Map Plugin',
     'Nigeria LGA GeoJSON Map',
     'Africa Choropleth Map',
@@ -21,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'WebApp Plugins Directory | KCR Nig Ltd',
     description:
-      'Turnkey GeoJSON maps for Nigeria 36 States & 774 LGAs, Africa, TinyMCE blog editors, and Paystack payment modules.',
+      'Turnkey enterprise plugins: devclassic-rbac permission guard, devclassic-notify omnichannel notifications, devclassic-map GeoJSON choropleths, and blog editors.',
     url: 'https://kolacrenee.com.ng/plugins',
     siteName: 'KCR Nig Ltd',
     images: [
@@ -37,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'WebApp Plugins Directory | KCR Nig Ltd',
     description:
-      'High-performance Next.js plugins for interactive maps, blog editors, and fintech payments.',
+      'High-performance Next.js plugins for enterprise RBAC, multi-channel notifications, interactive maps, and blog editors.',
     images: ['/og-image.png'],
   },
 };

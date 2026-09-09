@@ -20,17 +20,17 @@ import {
 
 export function HowItWorksClient() {
   const [activeStep, setActiveStep] = useState(1);
-  const [activeCodeTab, setActiveCodeTab] = useState<'next' | 'node' | 'python' | 'curl'>('next');
+  const [activeCodeTab, setActiveCodeTab] = useState<'rbac' | 'notify' | 'maps' | 'paystack'>('rbac');
   const [webhookSimulated, setWebhookSimulated] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const steps = [
     {
       num: 1,
-      title: 'Install WebApp Plugins',
-      subtitle: 'Plug-and-play architecture',
+      title: 'Install WebApp Plugins & Engines',
+      subtitle: 'Plug-and-play npm packages',
       description:
-        'Select plugins like Nigeria GeoJSON Maps, TinyMCE Blog Editors, or Paystack Gateways. Toggle activation in Next.js without editing core routing.',
+        'Select and install enterprise packages like devclassic-rbac (RBAC & ABAC permission engine), devclassic-notify (Multi-channel Email, SMS, WhatsApp, Web Push), and devclassic-map (Nigeria 36 States & 774 LGAs GeoJSON). Mount components in Next.js or Node.js in seconds.',
       icon: Grid,
       badge: 'Step 1 • Integration',
     },
@@ -64,7 +64,68 @@ export function HowItWorksClient() {
   ];
 
   const codeSnippets = {
-    next: `// app/api/paystack/checkout/route.ts
+    rbac: `// 1. Install devclassic-rbac
+// npm install devclassic-rbac
+
+import { Protect, Can, ProtectedRoute, RBACProvider } from 'devclassic-rbac';
+
+export default function AppLayout({ children }) {
+  const user = { id: 'usr_1', roles: ['admin'], permissions: ['billing:write', 'analytics:read'] };
+
+  return (
+    <RBACProvider user={user}>
+      {/* Declarative Frontend Guard */}
+      <Protect role="admin" fallback={<div className="p-4 bg-red-500/10 text-red-400">Access Denied</div>}>
+        <AdminBillingDashboard />
+      </Protect>
+
+      {/* Semantic Action Gate */}
+      <Can do="billing:write" on="Invoice">
+        <button className="px-4 py-2 bg-indigo-600 rounded">Generate Invoice</button>
+      </Can>
+    </RBACProvider>
+  );
+}`,
+    notify: `// 1. Install devclassic-notify
+// npm install devclassic-notify
+
+import { createNotificationEngine } from 'devclassic-notify';
+
+// Initialize multi-channel notification engine
+const notify = createNotificationEngine({
+  providers: {
+    email: { provider: 'resend', apiKey: process.env.RESEND_API_KEY },
+    sms: { provider: 'termii', apiKey: process.env.TERMII_API_KEY, senderId: 'KCRNIG' },
+    whatsapp: { provider: 'twilio', accountSid: process.env.TWILIO_SID, authToken: process.env.TWILIO_TOKEN }
+  },
+  autoFailover: true // Automatically routes to secondary provider on error
+});
+
+// Dispatch across channels with template variables
+await notify.send({
+  recipient: { email: 'client@example.com', phone: '+2348012345678' },
+  channels: ['email', 'sms'],
+  template: 'invoice_generated',
+  variables: { customerName: 'Adebayo', invoiceId: 'INV-2026-9824', amount: '₦86,000' }
+});`,
+    maps: `// 1. Install devclassic-map
+// npm install devclassic-map
+
+import { NigeriaMap } from 'devclassic-map';
+
+export function RegionalAnalytics() {
+  return (
+    <div className="w-full h-96">
+      {/* All 36 States + 774 LGA Drilldown GeoJSON Vector */}
+      <NigeriaMap
+        highlightState="Lagos"
+        colorScale="purple"
+        onSelectState={(state) => console.log('Selected State:', state)}
+      />
+    </div>
+  );
+}`,
+    paystack: `// app/api/paystack/checkout/route.ts
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
@@ -87,41 +148,7 @@ export async function POST(req: Request) {
 
   const data = await response.json();
   return NextResponse.json(data);
-}`,
-    node: `// server.js - Node.js Express Paystack Webhook Handler
-const express = require('express');
-const crypto = require('crypto');
-const app = express();
-
-app.post('/webhooks/paystack', express.json(), (req, res) => {
-  const hash = crypto.createHmac('sha512', process.env.PAYSTACK_SECRET)
-                    .update(JSON.stringify(req.body)).digest('hex');
-  
-  if (hash === req.headers['x-paystack-signature']) {
-    const event = req.body;
-    if (event.event === 'charge.success') {
-      console.log('Invoice Settled:', event.data.metadata.invoiceId);
-    }
-  }
-  res.sendStatus(200);
-});`,
-    python: `# paystack_webhook.py - FastAPI Paystack Signature Verification
-from fastapi import FastAPI, Request, Header, HTTPException
-import hmac, hashlib
-
-app = FastAPI()
-
-@app.post("/webhooks/paystack")
-async def paystack_webhook(request: Request, x_paystack_signature: str = Header(None)):
-    body = await request.body()
-    computed_hash = hmac.new(PAYSTACK_SECRET.encode(), body, hashlib.sha512).hexdigest()
-    if computed_hash != x_paystack_signature:
-        raise HTTPException(status_code=400, detail="Invalid HMAC signature")
-    return {"status": "success", "verified": True}`,
-    curl: `# Verify Paystack Transaction via cURL Command Line
-curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
-  -H "Authorization: Bearer sk_test_a9d4f828941094018249a" \\
-  -H "Content-Type: application/json"`,
+}`
   };
 
   const handleCopyCode = () => {
@@ -255,19 +282,27 @@ curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
               </div>
 
               {/* Code Language Tabs */}
-              <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-200/80 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30">
-                {(['next', 'node', 'python', 'curl'] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveCodeTab(tab)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-mono uppercase font-bold transition-all cursor-pointer ${activeCodeTab === tab
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
-                        : 'text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white'
-                      }`}
-                  >
-                    {tab}
-                  </button>
-                ))}
+              <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-slate-200/80 dark:bg-[#13082C] border border-slate-300 dark:border-[#A855F7]/30">
+                {(['rbac', 'notify', 'maps', 'paystack'] as const).map((tab) => {
+                  const labels: Record<string, string> = {
+                    rbac: 'devclassic-rbac',
+                    notify: 'devclassic-notify',
+                    maps: 'devclassic-map',
+                    paystack: 'Paystack Checkout'
+                  };
+                  return (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveCodeTab(tab)}
+                      className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${activeCodeTab === tab
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                          : 'text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white'
+                        }`}
+                    >
+                      {labels[tab]}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -278,7 +313,12 @@ curl https://api.paystack.co/transaction/verify/TRX_PAYSTACK_84920194 \\
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-amber-500" />
                   <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                  <span className="ml-2 text-xs font-mono text-slate-400">{activeCodeTab.toUpperCase()} Integration Example</span>
+                  <span className="ml-2 text-xs font-mono text-slate-400">
+                    {activeCodeTab === 'rbac' && 'devclassic-rbac • Enterprise Permission Guard (React & Next.js)'}
+                    {activeCodeTab === 'notify' && 'devclassic-notify • Multi-Channel Notification Dispatcher (Email/SMS/WhatsApp/Push)'}
+                    {activeCodeTab === 'maps' && 'devclassic-map • Nigeria 36 States & 774 LGA GeoJSON Choropleth'}
+                    {activeCodeTab === 'paystack' && 'Paystack Smart Gateway • Next.js App Router API Route'}
+                  </span>
                 </div>
 
                 <button

@@ -18,11 +18,20 @@ import {
   FolderLock,
   Sparkles,
   Zap,
-  Check
+  Check,
+  Bell,
+  MapPin,
+  Globe,
+  FileText,
+  Code,
+  Copy,
+  Terminal
 } from 'lucide-react';
 
 const CATEGORIES = [
   'All Plugins',
+  'Security & Auth',
+  'Notifications & Messaging',
   'Interactive Maps & GIS',
   'Rich Text Editors',
   'Payments & Invoicing',
@@ -42,12 +51,27 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
   const [selectedCategory, setSelectedCategory] = useState('All Plugins');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeModalPlugin, setActiveModalPlugin] = useState<WebAppPlugin | null>(null);
+  const [copiedPkg, setCopiedPkg] = useState<string | null>(null);
+
+  const handleCopyInstall = (e: React.MouseEvent, pkgName: string) => {
+    e.stopPropagation();
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(`npm i ${pkgName}`);
+    }
+    setCopiedPkg(pkgName);
+    setTimeout(() => setCopiedPkg(null), 2000);
+  };
 
   const getIcon = (name: string) => {
     switch (name) {
       case 'CreditCard': return CreditCard;
       case 'Bot': return Bot;
       case 'ShieldCheck': return ShieldCheck;
+      case 'Bell': return Bell;
+      case 'MapPin': return MapPin;
+      case 'Globe': return Globe;
+      case 'FileText': return FileText;
+      case 'Code': return Code;
       case 'MessageSquare': return MessageSquare;
       case 'TrendingUp': return TrendingUp;
       case 'FolderLock': return FolderLock;
@@ -57,9 +81,12 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
 
   const filteredPlugins = plugins.filter(plugin => {
     const matchesCategory = selectedCategory === 'All Plugins' || plugin.category === selectedCategory;
-    const matchesSearch = plugin.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          plugin.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          plugin.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+    const q = searchQuery.toLowerCase();
+    const matchesSearch = plugin.name.toLowerCase().includes(q) ||
+                          plugin.tagline.toLowerCase().includes(q) ||
+                          (plugin.npmPackage && plugin.npmPackage.toLowerCase().includes(q)) ||
+                          plugin.category.toLowerCase().includes(q) ||
+                          plugin.tags.some(t => t.toLowerCase().includes(q));
     return matchesCategory && matchesSearch;
   });
 
@@ -87,7 +114,7 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
               WebApp <span className="text-purple-gradient">Plugins Marketplace</span>
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl">
-              Turnkey GeoJSON map breakdowns (Nigeria, Africa, World), TinyMCE blog editors, and custom software engineering modules.
+              Turnkey Enterprise RBAC guards (<code className="text-indigo-600 dark:text-purple-300 font-mono">devclassic-rbac</code>), Multi-Channel Notifications (<code className="text-indigo-600 dark:text-purple-300 font-mono">devclassic-notify</code>), GeoJSON maps (<code className="text-indigo-600 dark:text-purple-300 font-mono">devclassic-map</code>), and rich text editors.
             </p>
           </div>
 
@@ -96,7 +123,7 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search Nigeria map, TinyMCE, GIS..."
+              placeholder="Search RBAC, notify, maps, npm..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 shadow-inner transition-colors"
@@ -180,6 +207,28 @@ export const PluginsMarketplace: React.FC<PluginsMarketplaceProps> = ({
                           Live UI Preview
                         </span>
                       </div>
+                    </div>
+                  )}
+
+                  {/* npm install snippet */}
+                  {plugin.npmPackage && (
+                    <div className="flex items-center justify-between px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#12072B] border border-slate-300 dark:border-[#A855F7]/30 text-[11px] font-mono shadow-inner">
+                      <div className="flex items-center gap-1.5 min-w-0 text-slate-700 dark:text-[#E9D5FF]">
+                        <Terminal className="w-3.5 h-3.5 text-indigo-600 dark:text-[#C084FC] shrink-0" />
+                        <span className="truncate select-all">npm i {plugin.npmPackage}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={(e) => handleCopyInstall(e, plugin.npmPackage!)}
+                        title="Copy npm command"
+                        className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-[#2A1058] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors cursor-pointer shrink-0 ml-1.5"
+                      >
+                        {copiedPkg === plugin.npmPackage ? (
+                          <Check className="w-3.5 h-3.5 text-emerald-500" />
+                        ) : (
+                          <Copy className="w-3.5 h-3.5" />
+                        )}
+                      </button>
                     </div>
                   )}
 

@@ -2,6 +2,44 @@ import { Invoice } from '../types/invoice';
 
 export const INITIAL_INVOICES: Invoice[] = [
   {
+    id: 'inv-9828',
+    invoiceNumber: 'INV-2026-9828',
+    clientName: 'Oluwaseun Bakare',
+    clientEmail: 'seun@apexfintech.ng',
+    clientCompany: 'Apex Fintech & Digital Banking',
+    clientAddress: '22 Adeola Odeku St, Victoria Island, Lagos',
+    date: '2026-09-08',
+    dueDate: '2026-09-22',
+    status: 'PAID',
+    currency: 'NGN',
+    subtotal: 195000,
+    taxRate: 7.5,
+    taxAmount: 14625,
+    totalAmount: 209625,
+    notes: 'Paid via Paystack Transfer. Reference: TRX_PAYSTACK_99201488. devclassic-rbac & devclassic-notify modules deployed.',
+    paystackRef: 'TRX_PAYSTACK_99201488',
+    paidAt: '2026-09-08 16:45:00',
+    paymentChannel: 'Paystack Bank Transfer (GTBank)',
+    items: [
+      {
+        id: 'item-7',
+        description: 'devclassic-rbac Enterprise Access Control & Route Guard License',
+        quantity: 1,
+        unitPrice: 95000,
+        total: 95000,
+        pluginId: 'plug-devclassic-rbac'
+      },
+      {
+        id: 'item-8',
+        description: 'devclassic-notify Multi-Channel Engine (Email, SMS, WhatsApp, Web Push)',
+        quantity: 1,
+        unitPrice: 100000,
+        total: 100000,
+        pluginId: 'plug-devclassic-notify'
+      }
+    ]
+  },
+  {
     id: 'inv-9824',
     invoiceNumber: 'INV-2026-9824',
     clientName: 'Adebayo Ogunlesi',

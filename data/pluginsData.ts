@@ -2,10 +2,126 @@ import { WebAppPlugin } from '../types/plugin';
 
 export const INITIAL_PLUGINS: WebAppPlugin[] = [
   {
+    id: 'plug-devclassic-rbac',
+    name: 'devclassic-rbac — Enterprise RBAC & ABAC Engine',
+    slug: 'devclassic-rbac-enterprise-auth-guard',
+    tagline: 'Zero-runtime-dep RBAC & ABAC permission engine with route guards, <Protect> gates, and dual frontend/backend security.',
+    description: 'Guard your React / Next.js UI components and Node.js / Express backend APIs with the exact same security rules — zero discrepancy, zero exploits. Features declarative <Protect>, semantic <Can>, <ProtectedRoute>, useRBAC() hook, dynamic ABAC conditions, multi-tenant roles, and explain() audit engine.',
+    category: 'Security & Auth',
+    rating: 4.99,
+    reviewsCount: 420,
+    downloads: '14.8k',
+    version: 'v1.0.0',
+    author: 'devclassic',
+    authorVerified: true,
+    iconName: 'ShieldCheck',
+    installed: true,
+    active: true,
+    price: 'Free / MIT Open Source',
+    badge: 'NEW RELEASE',
+    previewImage: '/plugins/rbac-preview.jpg',
+    npmPackage: 'devclassic-rbac',
+    tags: ['devclassic-rbac', 'RBAC', 'ABAC', 'Permissions', 'Next.js', 'React', 'Route Guard', 'Security'],
+    features: [
+      'Dual frontend UI and backend API unified permission enforcement',
+      'Declarative <Protect> and semantic <Can> React components',
+      '<ProtectedRoute> for Next.js App Router and edge middleware',
+      'Dynamic Attribute-Based (ABAC) business condition rules',
+      'Audit & explainability engine with explain() method',
+      'Zero runtime dependencies with dual ESM/CJS support'
+    ],
+    configOptions: [
+      {
+        id: 'fallback_mode',
+        name: 'Guard Fallback Mode',
+        type: 'select',
+        value: 'Hide Element',
+        options: ['Hide Element', 'Disable Element', 'Access Denied Banner', 'Custom Render Prop'],
+        description: 'Default UI behavior when user lacks required permission'
+      },
+      {
+        id: 'strict_hierarchy',
+        name: 'Role Hierarchy Inheritance',
+        type: 'boolean',
+        value: true,
+        description: 'Inherit subordinate role permissions (Admin > Manager > Editor > Viewer)'
+      },
+      {
+        id: 'audit_explain',
+        name: 'Live Audit & Explain Mode',
+        type: 'boolean',
+        value: true,
+        description: 'Enable explain() debugging to audit why access was granted or denied'
+      }
+    ]
+  },
+  {
+    id: 'plug-devclassic-notify',
+    name: 'devclassic-notify — Multi-Channel Notification Engine',
+    slug: 'devclassic-notify-omnichannel-engine',
+    tagline: 'Enterprise multi-channel notification engine (Email, SMS, WhatsApp, Web Push) with auto-failover and React in-app center.',
+    description: 'Unify Email (Resend, SendGrid, Gmail/SMTP), SMS (Termii, Twilio), WhatsApp, and Browser Push notifications under a single elegant API. Works standalone on the backend (Node/Express/Fastify), frontend-only with <NotificationBell /> & <NotificationPreferences />, or unified in Next.js App Router.',
+    category: 'Notifications & Messaging',
+    rating: 4.99,
+    reviewsCount: 380,
+    downloads: '19.4k',
+    version: 'v1.0.2',
+    author: 'devclassic',
+    authorVerified: true,
+    iconName: 'Bell',
+    installed: true,
+    active: true,
+    price: 'Free / MIT Open Source',
+    badge: 'NEW RELEASE',
+    previewImage: '/plugins/notify-preview.jpg',
+    npmPackage: 'devclassic-notify',
+    tags: ['devclassic-notify', 'Notifications', 'Email', 'SMS', 'WhatsApp', 'Web Push', 'Termii', 'Resend'],
+    features: [
+      'Multi-channel dispatch: Email, SMS, WhatsApp, and Web Push',
+      'Automatic provider failover (Termii -> Twilio, Resend -> SendGrid/Gmail)',
+      'Frontend React components: <NotificationBell /> & <NotificationPreferences />',
+      'Browser push notifications with useWebPush() hook & VAPID key support',
+      'Dynamic variable template engine ({{userName}}, {{orderId}}, etc.)',
+      'Standalone backend, frontend-only, or full-stack Next.js operation'
+    ],
+    configOptions: [
+      {
+        id: 'email_provider',
+        name: 'Primary Email Provider',
+        type: 'select',
+        value: 'Resend',
+        options: ['Resend', 'SendGrid', 'Gmail / SMTP', 'Mock Sandbox'],
+        description: 'Primary transactional email delivery service'
+      },
+      {
+        id: 'sms_provider',
+        name: 'Primary SMS Provider',
+        type: 'select',
+        value: 'Termii',
+        options: ['Termii (Nigeria & Africa)', 'Twilio (Global)', 'Mock Sandbox'],
+        description: 'Primary SMS dispatch gateway with African & global routing'
+      },
+      {
+        id: 'auto_failover',
+        name: 'Automatic Provider Failover',
+        type: 'boolean',
+        value: true,
+        description: 'Automatically route to secondary provider if primary fails'
+      },
+      {
+        id: 'vapid_public_key',
+        name: 'VAPID Web Push Public Key',
+        type: 'string',
+        value: 'BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDZKrxZ_fSBOImTHufzs....',
+        description: 'VAPID public key for browser web push subscriptions'
+      }
+    ]
+  },
+  {
     id: 'plug-nigeria-map-breakdown',
-    name: 'Nigeria State & LGA Interactive Map',
+    name: 'Nigeria State & LGA Interactive Map (devclassic-map)',
     slug: 'nigeria-state-lga-map-breakdown',
-    tagline: 'High-resolution GeoJSON choropleth map for all 36 Nigerian States & 774 LGAs.',
+    tagline: 'High-resolution GeoJSON choropleth map for all 36 Nigerian States & 774 LGAs powered by devclassic-map.',
     description: 'Empower your WebApp with interactive SVG/D3 choropleth maps of Nigeria. Includes state-level demographic data, LGA boundaries, election/sales breakdown overlays, and click-to-filter reactivity.',
     category: 'Interactive Maps & GIS',
     rating: 4.99,
@@ -20,7 +136,8 @@ export const INITIAL_PLUGINS: WebAppPlugin[] = [
     price: '₦45,000 / license',
     badge: 'BEST SELLER',
     previewImage: '/plugins/nigeria-map.jpg',
-    tags: ['Nigeria', 'Maps', 'Choropleth', 'GeoJSON', 'States', 'LGAs', 'GIS', 'React'],
+    npmPackage: 'devclassic-map',
+    tags: ['devclassic-map', 'Nigeria', 'Maps', 'Choropleth', 'GeoJSON', 'States', 'LGAs', 'GIS', 'React'],
 
     features: [
       'Pre-rendered SVG GeoJSON vector layers for all 36 States & FCT Abuja',

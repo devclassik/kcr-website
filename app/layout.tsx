@@ -18,14 +18,23 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://kolacrenee.com.ng"),
   title: {
-    default: "KCR Nig Ltd - Interactive Maps, Blog Editors & WebApp Plugins",
+    default: "KCR Nig Ltd - Enterprise RBAC, Notification Engines, GIS Maps & WebApp Plugins",
     template: "%s | KCR Nig Ltd",
   },
   description:
-    "Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd) - Turnkey GeoJSON maps (Nigeria 36 States & 774 LGAs, Africa, World), TinyMCE blog editors, Paystack smart gateways, and custom software engineering.",
+    "Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd) - Turnkey WebApp plugins: devclassic-rbac (Enterprise RBAC/ABAC guard), devclassic-notify (Omnichannel Email, SMS, WhatsApp, Web Push), devclassic-map (Nigeria 36 States & 774 LGAs GeoJSON), TinyMCE blog editors, and Paystack smart gateways.",
   keywords: [
     "KCR Nig Ltd",
     "Kolamajawole C-Renee Ent Ltd",
+    "devclassic-rbac",
+    "devclassic-notify",
+    "devclassic-map",
+    "Enterprise RBAC Next.js",
+    "Multi-channel notification engine",
+    "Termii SMS plugin",
+    "Resend Email Next.js",
+    "Web Push VAPID React",
+    "Next.js Permissions Guard",
     "Nigeria State Map GeoJSON",
     "Nigeria 774 LGA Map",
     "Africa Choropleth Map",
@@ -61,9 +70,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "KCR Nig Ltd - Interactive Maps & WebApp Plugin Engine",
+    title: "KCR Nig Ltd - Enterprise RBAC, Notification Engines & WebApp Plugins",
     description:
-      "Building solutions. Deploying success. Turnkey GeoJSON map choropleths for Nigeria 36 States/774 LGAs, Africa & World, TinyMCE blog editors, and custom software engineering.",
+      "Building solutions. Deploying success. Turnkey devclassic-rbac permission engines, devclassic-notify multi-channel alerts, devclassic-map GeoJSON choropleths, and Paystack billing.",
     url: "https://kolacrenee.com.ng",
     siteName: "KCR Nig Ltd",
     images: [

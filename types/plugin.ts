@@ -13,7 +13,7 @@ export interface WebAppPlugin {
   slug: string;
   tagline: string;
   description: string;
-  category: 'Interactive Maps & GIS' | 'Rich Text Editors' | 'Payments & Invoicing' | 'Cloud & Security' | 'Engineering Services' | 'Payments & Billing' | 'AI & Automation' | 'Security & Auth' | 'Realtime & Chat' | 'Data & Analytics';
+  category: 'Interactive Maps & GIS' | 'Rich Text Editors' | 'Payments & Invoicing' | 'Cloud & Security' | 'Engineering Services' | 'Payments & Billing' | 'AI & Automation' | 'Security & Auth' | 'Notifications & Messaging' | 'Realtime & Chat' | 'Data & Analytics';
   rating: number;
   reviewsCount: number;
   downloads: string;
@@ -29,5 +29,6 @@ export interface WebAppPlugin {
   configOptions: PluginOption[];
   badge?: string;
   previewImage?: string;
+  npmPackage?: string;
 }
 
