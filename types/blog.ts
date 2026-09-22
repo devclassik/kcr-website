@@ -33,8 +33,9 @@ export interface BlogPost {
   views?: number;
   likes?: number;
   updatedAt?: string;
+  createdAt?: string;
 }
 
-export type BlogPostInput = Omit<BlogPost, 'id' | 'views' | 'likes' | 'updatedAt'> & {
+export type BlogPostInput = Omit<BlogPost, 'id' | 'views' | 'likes' | 'updatedAt' | 'createdAt'> & {
   id?: string;
 };

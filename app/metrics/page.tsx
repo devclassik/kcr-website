@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     'Automated Invoicing Nigeria',
   ],
   alternates: {
-    canonical: 'https://kolacrenee.com/metrics',
+    canonical: 'https://kolacrenee.com.ng/metrics',
   },
   openGraph: {
     title: 'Platform Metrics & Trust Hub | KCR Nig Ltd',
     description:
       'Real-time metrics, invoice generation, and Paystack settlement engine for WebApp plugins.',
-    url: 'https://kolacrenee.com/metrics',
+    url: 'https://kolacrenee.com.ng/metrics',
     siteName: 'KCR Nig Ltd',
     images: [
       {

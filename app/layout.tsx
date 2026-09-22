@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -17,12 +17,15 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kolacrenee.com.ng"),
+  applicationName: "KCR Nig Ltd",
+  category: "technology",
+  classification: "Business software, developer tools, GIS mapping, and payment integrations",
   title: {
     default: "KCR Nig Ltd - Enterprise RBAC, Notification Engines, GIS Maps & WebApp Plugins",
     template: "%s | KCR Nig Ltd",
   },
   description:
-    "Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd) - Turnkey WebApp plugins: devclassic-rbac (Enterprise RBAC/ABAC guard), devclassic-notify (Omnichannel Email, SMS, WhatsApp, Web Push), devclassic-map (Nigeria 36 States & 774 LGAs GeoJSON), TinyMCE blog editors, and Paystack smart gateways.",
+    "Kolamajawole C-Renee Ent Ltd (KCR Nig Ltd) builds production-ready WebApp plugins for enterprise RBAC, omnichannel notifications, Nigeria GIS maps, TinyMCE blog editors, and Paystack integrations for modern businesses in Nigeria and beyond.",
   keywords: [
     "KCR Nig Ltd",
     "Kolamajawole C-Renee Ent Ltd",
@@ -30,22 +33,23 @@ export const metadata: Metadata = {
     "devclassic-notify",
     "devclassic-map",
     "Enterprise RBAC Next.js",
+    "Next.js permissions guard",
     "Multi-channel notification engine",
     "Termii SMS plugin",
-    "Resend Email Next.js",
-    "Web Push VAPID React",
-    "Next.js Permissions Guard",
-    "Nigeria State Map GeoJSON",
-    "Nigeria 774 LGA Map",
-    "Africa Choropleth Map",
-    "World Map Plugin React",
-    "TinyMCE Blog Editor Next.js",
-    "Paystack Payment Gateway Plugin",
-    "Software Engineering Nigeria",
-    "GIS Vector Maps React",
-    "WebApp Plugins Marketplace",
-    "Next.js Plugins",
-    "Lagos Software Developer",
+    "Resend email integration",
+    "Web push VAPID React",
+    "Nigeria state map GeoJSON",
+    "Nigeria 774 LGA map",
+    "Africa choropleth map",
+    "World map plugin React",
+    "TinyMCE blog editor Next.js",
+    "Paystack payment gateway plugin",
+    "Software engineering Nigeria",
+    "GIS vector maps React",
+    "WebApp plugins marketplace",
+    "Next.js plugins",
+    "Lagos software developer",
+    "Custom software company Lagos",
   ],
   authors: [{ name: "KCR Nig Ltd", url: "https://kolacrenee.com.ng" }],
   creator: "Kolamajawole C-Renee Ent Ltd",
@@ -57,6 +61,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://kolacrenee.com.ng",
+    languages: {
+      "en-NG": "https://kolacrenee.com.ng",
+    },
   },
   robots: {
     index: true,
@@ -72,26 +79,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KCR Nig Ltd - Enterprise RBAC, Notification Engines & WebApp Plugins",
     description:
-      "Building solutions. Deploying success. Turnkey devclassic-rbac permission engines, devclassic-notify multi-channel alerts, devclassic-map GeoJSON choropleths, and Paystack billing.",
+      "Building solutions. Deploying success. Turnkey devclassic-rbac permission engines, devclassic-notify multi-channel alerts, devclassic-map GeoJSON choropleths, and Paystack billing for modern WebApps.",
     url: "https://kolacrenee.com.ng",
     siteName: "KCR Nig Ltd",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://kolacrenee.com.ng/og-image.png",
         width: 1200,
         height: 630,
         alt: "KCR Nig Ltd - Kolamajawole C-Renee Ent Ltd",
       },
     ],
-    locale: "en_US",
+    locale: "en_NG",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "KCR Nig Ltd - Interactive Maps & Software Engineering",
     description:
-      "Building solutions. Deploying success. Interactive Map Breakdowns, TinyMCE Blog Editors & Enterprise Tech.",
-    images: ["/og-image.png"],
+      "Building solutions. Deploying success. Interactive map breakdowns, TinyMCE blog editors, and enterprise tech for Nigeria and West Africa.",
+    images: ["https://kolacrenee.com.ng/og-image.png"],
     creator: "@kcrnigltd",
   },
   icons: {
@@ -102,7 +109,13 @@ export const metadata: Metadata = {
     shortcut: "/kcr-logo.png",
     apple: "/kcr-logo.png",
   },
-  category: "technology",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#7C3AED",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
