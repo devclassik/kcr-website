@@ -59,6 +59,9 @@ export const Footer: React.FC = () => {
                 <Link href="/plugins" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">WebApp Plugins</Link>
               </li>
               <li>
+                <Link href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Engineering Blog</Link>
+              </li>
+              <li>
                 <Link href="/metrics" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Platform Metrics & Reviews</Link>
               </li>
               <li>
@@ -67,7 +70,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/metrics" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Platform Trust Hub</Link>
               </li>
-
             </ul>
           </div>
 
@@ -75,6 +77,9 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white">Developers & Docs</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/blog" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Technical Whitepapers</Link>
+              </li>
               <li>
                 <Link href="/how-it-works" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">API Architecture</Link>
               </li>

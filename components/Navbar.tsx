@@ -15,6 +15,7 @@ import {
   Moon,
   Sparkles,
   Star,
+  BookOpen,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -36,6 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'How It Works', href: '/how-it-works', icon: HelpCircle },
     { name: 'Plugins Directory', href: '/plugins', icon: Grid },
     { name: 'Platform Metrics', href: '/metrics', icon: Star },
+    { name: 'Blog', href: '/blog', icon: BookOpen },
     { name: 'Contact & Support', href: '/contact', icon: Mail },
   ];
 
@@ -70,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/90 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors duration-300">
           {navLinks.map((link) => {
             const Icon = link.icon;
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.href}
@@ -119,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="lg:hidden flex items-center justify-around bg-slate-50 dark:bg-[#0B0F19] border-t border-slate-200 dark:border-slate-800 px-2 py-2 transition-colors duration-300">
         {navLinks.map((link) => {
           const Icon = link.icon;
-          const isActive = pathname === link.href;
+          const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
           return (
             <Link
               key={link.href}
