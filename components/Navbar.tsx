@@ -16,6 +16,7 @@ import {
   Sparkles,
   Star,
   BookOpen,
+  Users,
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -34,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks: { name: string; href: string; icon: any; badge?: number }[] = [
     { name: 'Home', href: '/', icon: Zap },
+    { name: 'About Us', href: '/about', icon: Users },
     { name: 'How It Works', href: '/how-it-works', icon: HelpCircle },
     { name: 'Plugins Directory', href: '/plugins', icon: Grid },
     { name: 'Platform Metrics', href: '/metrics', icon: Star },

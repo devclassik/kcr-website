@@ -56,6 +56,9 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white">Platform</h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About KCR Nig Ltd</Link>
+              </li>
+              <li>
                 <Link href="/plugins" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">WebApp Plugins</Link>
               </li>
               <li>
