@@ -769,11 +769,11 @@ export function AboutClient() {
             <div className="pt-8 flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-slate-400 border-t border-white/10">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-indigo-400" />
-                <span>14 Lekki Phase 1 Tech Expressway, Lagos</span>
+                <span>plot 5, kado-kuchi Abuja</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-400" />
-                <span>+234 (0) 1 800-KCR-NIG</span>
+                <span>+234 (0) 8147383503</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-400" />
