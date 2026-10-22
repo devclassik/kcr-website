@@ -12,6 +12,10 @@ export const BLOG_CATEGORIES: Exclude<BlogCategory, 'All'>[] = [
 
 export const BLOG_COVER_PRESETS = [
   {
+    name: 'NSSEC Executive Dialogue & National Standards',
+    url: 'https://cdn.thenationonlineng.net/wp-content/uploads/2026/10/22074626/Screenshot-2026-10-22-073354.jpg',
+  },
+  {
     name: 'Science & Education Modern Lab',
     url: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
   },
@@ -43,13 +47,96 @@ export const BLOG_COVER_PRESETS = [
 
 export const INITIAL_BLOG_POSTS: BlogPost[] = [
   {
+    id: 'blog-post-nssec-institutional-gap',
+    slug: 'how-nssec-is-addressing-institutional-gap-in-senior-secondary-education-standard',
+    title: 'How NSSEC is addressing institutional gap in senior secondary education standard',
+    excerpt: 'The Executive Secretary of the National Senior Secondary Education Commission (NSSEC), Dr. Iyela Ajayi, in this interview with Assistant Editor Bola Olajuwon, explains how the commission has justified its existence after the commencement of operation in 2021 and the signing of its Act in 2023.',
+    coverImage: 'https://cdn.thenationonlineng.net/wp-content/uploads/2026/10/22074626/Screenshot-2026-10-22-073354.jpg',
+    category: 'Education & Infrastructure',
+    featured: true,
+    author: {
+      name: 'Bola Olajuwon',
+      role: 'Assistant Editor / Senior Policy Correspondent',
+      avatar: 'https://cdn.thenationonlineng.net/wp-content/uploads/2026/10/22074626/Screenshot-2026-10-22-073354.jpg',
+      company: 'National Senior Secondary Education Commission (NSSEC)',
+      bio: 'Specialist correspondent covering federal education policies, institutional oversight, and secondary education benchmarks across Nigeria.',
+    },
+    publishedAt: '2026-10-22',
+    readTime: '6 min read',
+    tags: [
+      'NSSEC',
+      'Senior Secondary Education',
+      'Dr. Iyela Ajayi',
+      'Bola Olajuwon',
+      'Education Reform',
+      'Pedagogy Reform',
+      'Renewed Hope',
+    ],
+    status: 'published',
+    views: 3120,
+    likes: 245,
+    content: `### Executive Interview Overview
+
+The Executive Secretary of the National Senior Secondary Education Commission (NSSEC), **Dr. Iyela Ajayi**, in this interview with Assistant Editor **Bola Olajuwon**, explains how the commission has justified its existence after the commencement of operation in 2021 and the signing of its Act in 2023.
+
+According to him, the commission is implementing its national benchmarks for senior secondary schools while also improving on its mandate, particularly in relation to tackling substandard secondary schools through systematic monitoring of public and private senior secondary schools against nationally prescribed standards.
+
+He believed the commission is implementing its mandates through curriculum implementation, teacher development, infrastructure, school management, and learning outcomes with stronger coordination between federal and state institutions.
+
+---
+
+### Question 1: Can you tell us about the performance of NSSEC so far?
+
+**Dr. Iyela Ajayi:** Before the establishment of NSSEC, senior secondary education lacked a dedicated national commission with a specific mandate to coordinate its development, prescribe minimum standards, and drive sector-wide quality improvement.
+
+The National Senior Secondary Education Commission Act provides the statutory basis for the commission’s regulatory and intervention responsibilities. The commission’s official institutional history records its operational commencement in 2021 and the signing of the NSSEC Act in 2023.
+
+The establishment of NSSEC was justified by the need to address several longstanding problems, especially differences in state policies, school facilities, staffing, and regulatory practices that created uneven standards across the country.
+
+There was a need for systematic monitoring of public and private senior secondary schools against nationally prescribed standards. Also, curriculum implementation, teacher development, infrastructure, school management, and learning outcomes required stronger coordination between federal and state institutions.
+
+Before the establishment of the commission, students’ access to qualified teachers, laboratories, libraries, digital resources, and safe learning environments varies considerably between schools and locations. A national framework was needed to connect school performance, public investment, regulatory oversight, and measurable improvements in learning.
+
+Therefore, the justification for NSSEC is stronger when its mandate is considered against the present scale and complexity of senior secondary education.
+
+The commission remains necessary for five strategic reasons:
+
+1. **National standardisation:** Establishing minimum expectations for infrastructure, staffing, school leadership, curriculum delivery, safety and student welfare.
+2. **Regulation and accountability:** Ensuring that public and private senior secondary schools meet nationally approved requirements.
+3. **Targeted intervention:** Identifying schools with critical deficiencies and directing technical support and available resources towards them.
+4. **Human-capital development:** Improving teacher competencies, school leadership, technical and vocational education, digital literacy and students’ readiness for employment and further study.
+5. **Evidence-based policy:** Providing the Federal Government with reliable information on school conditions, funding needs, implementation gaps and learning outcomes.
+
+The commission’s mandate is, therefore, not simply to create another layer of administration. It is to ensure that senior secondary education functions as a coherent national system, with clear standards, measurable performance expectations and mechanisms for improvement.
+
+> "The most convincing justification of the commission’s existence is demonstrated through results rather than the number of policies, workshops or inspection visits conducted."
+> — Dr. Iyela Ajayi, Executive Secretary, NSSEC
+
+---
+
+### Question 2: What are the reforms you have initiated?
+
+**Dr. Iyela Ajayi:** We have initiated extensive nationwide reforms across multiple intervention areas:
+
+- **National Policy & Guidelines:** We have developed a National Policy on Senior Secondary Education and its implementation guidelines.
+- **Minimum Standards:** We also developed a minimum standards for senior secondary education in Nigeria.
+- **Pedagogical Skills Enhancement:** We organised capacity building workshops on enhancement of pedagogical skills for selected English Language Teachers in Senior Secondary Schools across the six geopolitical zones.
+- **Google Research AI Collaboration:** We also collaborated with Google Research in organising an online Artificial Intelligence in Pedagogy Training for 6000 Senior Secondary Education Teachers across the six geopolitical zones.
+- **Monitoring & Evaluation Manual:** We have developed a Manual for Monitoring and Evaluation of Senior Secondary Schools in Nigeria.
+- **Safety, Security & SBMC Advocacy:** We conducted advocacy and sensitisation visits to the 36 states and FCT on the functionality and effective implementation of the National Policies on Safety, Security and Violence-Free Schools (SSVFSN) and School-Based Management Committee (SBMC).
+- **Skills Acquisition Programme:** We introduced an annual “Long Vacation Skills Acquisition Programme” for students of Senior Secondary Schools nationwide.
+- **Agricultural "Grow What You Eat" Initiative:** We introduced an annual Agricultural Education Programme tagged: “Grow what you Eat Initiative” for students of senior secondary schools nationwide.
+- **National Science, Technology & Innovation Exhibition:** The commission also introduced an annual National Science, Technology and Innovation exhibition for students of Senior Secondary schools across Nigeria.
+- **International Multilateral Partnerships:** We collaborated with international governments and multilateral institutions such as the British Council, American Embassy and America’s Education Development Centre based in Washington to develop senior secondary education across a wide range of interventions such as the capacity development of teachers, youth learning, technology and innovation.`
+  },
+  {
     id: 'blog-post-teacher-training',
     slug: 'fg-to-train-250000-teachers-without-teaching-qualifications',
     title: 'FG to train 250,000 non professional teachers',
     excerpt: 'The Federal Government has commenced preparations for the Accelerated Teacher Professionalisation Pathway (ATPP), a six-month programme designed to equip 250,000 serving teachers with recognized professional credentials.',
     coverImage: 'https://punchng.com/wp-content/uploads/2026/06/Tunji-Alausa-1062x598-1.webp',
     category: 'Education & Infrastructure',
-    featured: true,
+    featured: false,
     author: {
       name: 'National Teachers’ Institute (NTI) in collaboration with TRCN',
       role: 'Education Policy Desk',

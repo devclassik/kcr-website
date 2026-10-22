@@ -5,31 +5,31 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { BlogPost, BlogCategory, BlogPostInput } from '../types/blog';
 import { BLOG_CATEGORIES } from '../data/blogData';
-import { 
-  getStoredPosts, 
-  savePost, 
-  deletePost, 
-  resetBlogPostsToDefault, 
-  getAdminMode, 
-  setAdminMode 
+import {
+  getStoredPosts,
+  savePost,
+  deletePost,
+  resetBlogPostsToDefault,
+  getAdminMode,
+  setAdminMode
 } from '../lib/blogStorage';
 import { BlogCard } from './BlogCard';
 import { BlogHero } from './BlogHero';
 import { BlogAdminModal } from './BlogAdminModal';
-import { 
-  Search, 
-  Plus, 
-  Shield, 
-  ShieldCheck, 
-  RotateCcw, 
-  SlidersHorizontal, 
-  Sparkles, 
-  BookOpen, 
-  FileText, 
-  CheckCircle2, 
-  Trash2, 
-  Edit3, 
-  Eye, 
+import {
+  Search,
+  Plus,
+  Shield,
+  ShieldCheck,
+  RotateCcw,
+  SlidersHorizontal,
+  Sparkles,
+  BookOpen,
+  FileText,
+  CheckCircle2,
+  Trash2,
+  Edit3,
+  Eye,
   Filter,
   Lock,
   ChevronDown
@@ -41,7 +41,7 @@ export function BlogClient() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
   const [showAdminDrawer, setShowAdminDrawer] = useState(false);
-  
+
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
@@ -141,10 +141,9 @@ export function BlogClient() {
     });
   }, [posts, selectedCategory, searchQuery, isAdmin]);
 
-  // Find featured post for top hero (prioritizes 250,000 teachers story)
+  // Find featured post for top hero (prioritizes newest featured post)
   const featuredPost = useMemo(() => {
     return (
-      posts.find((p) => (p.id === 'blog-post-teacher-training' || p.title.includes('250,000')) && p.status === 'published') ||
       posts.find((p) => p.featured && p.status === 'published') ||
       posts.find((p) => p.status === 'published')
     );
@@ -163,7 +162,7 @@ export function BlogClient() {
       )}
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        
+
         {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200/80 dark:border-slate-800">
           <div className="space-y-3 max-w-2xl">
@@ -182,7 +181,7 @@ export function BlogClient() {
           {/* Admin Controls Toolbar */}
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             {/* Admin Toggle */}
-            <button
+            {/* <button
               onClick={toggleAdmin}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border ${
                 isAdmin
@@ -202,7 +201,7 @@ export function BlogClient() {
                   <span>Admin Mode: OFF</span>
                 </>
               )}
-            </button>
+            </button> */}
 
             {/* If Admin: New Article button */}
             {isAdmin && (
@@ -228,13 +227,13 @@ export function BlogClient() {
             )}
 
             {/* Reset Defaults button */}
-            <button
+            {/* <button
               onClick={handleResetDefaults}
               className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors"
               title="Reset Articles to Seed Defaults"
             >
               <RotateCcw className="w-4 h-4" />
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -278,11 +277,10 @@ export function BlogClient() {
                       </td>
                       <td className="py-2.5">
                         <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                            p.status === 'published'
-                              ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
-                              : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30'
-                          }`}
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${p.status === 'published'
+                            ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
+                            : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30'
+                            }`}
                         >
                           {p.status}
                         </span>
@@ -319,7 +317,7 @@ export function BlogClient() {
         {/* Filter Bar: Categories + Search */}
         <div className="space-y-4 my-8">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-            
+
             {/* Search Box */}
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -351,11 +349,10 @@ export function BlogClient() {
           <div className="flex flex-wrap items-center gap-2 pt-1 overflow-x-auto pb-2 scrollbar-none">
             <button
               onClick={() => setSelectedCategory('All')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all ${
-                selectedCategory === 'All'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
-              }`}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all ${selectedCategory === 'All'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
+                }`}
             >
               All Topics ({posts.filter((p) => isAdmin || p.status === 'published').length})
             </button>
@@ -368,11 +365,10 @@ export function BlogClient() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all ${
-                    selectedCategory === cat
-                      ? 'bg-indigo-600 text-white shadow-sm'
-                      : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
-                  }`}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all ${selectedCategory === cat
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
+                    }`}
                 >
                   {cat} ({count})
                 </button>

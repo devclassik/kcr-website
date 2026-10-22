@@ -165,6 +165,35 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
     );
   }
 
+  // Helper to format inline markdown (bold, code, italics)
+  const renderInline = (text: string): React.ReactNode => {
+    const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="font-bold text-slate-900 dark:text-white">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return (
+          <code key={i} className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 font-mono text-xs">
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+      if (part.startsWith('*') && part.endsWith('*')) {
+        return (
+          <em key={i} className="italic text-slate-600 dark:text-slate-400">
+            {part.slice(1, -1)}
+          </em>
+        );
+      }
+      return part;
+    });
+  };
+
   // Render markdown content blocks nicely
   const renderFormattedContent = (content: string) => {
     const lines = content.split('\n');
@@ -214,12 +243,52 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
         return;
       }
 
+      // Horizontal dividers
+      if (line.trim() === '---' || line.trim() === '***') {
+        elements.push(
+          <div key={`divider-${index}`} className="my-8 flex items-center gap-4">
+            <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1" />
+            <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500">
+              Executive Interview Dialogue
+            </span>
+            <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1" />
+          </div>
+        );
+        return;
+      }
+
+      // Q&A Question Headings (e.g., "### Question:" or "### Q:")
+      if (
+        line.trim().startsWith('### Question') ||
+        line.trim().startsWith('### Q:') ||
+        line.trim().startsWith('### Interview Question')
+      ) {
+        const text = line.trim().replace(/^###\s+/, '');
+        elements.push(
+          <div
+            key={`question-card-${index}`}
+            className="my-7 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-indigo-50/90 via-sky-50/40 to-white dark:from-indigo-950/40 dark:via-slate-900/60 dark:to-slate-900/30 border border-indigo-200/70 dark:border-indigo-900/60 shadow-sm"
+          >
+            <div className="flex items-center gap-2 mb-2.5">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-600 text-white shadow-sm">
+                <MessageCircle className="w-3 h-3" />
+                Executive Interview Question
+              </span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-snug">
+              {text.replace(/^(Question\s*\d*:\s*|Interview Question:\s*|Q:\s*)/i, '')}
+            </h3>
+          </div>
+        );
+        return;
+      }
+
       // H3 Headings
       if (line.trim().startsWith('### ')) {
         const text = line.trim().replace('### ', '');
         elements.push(
           <h3 key={`h3-${index}`} className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white pt-6 pb-2 border-b border-slate-200/60 dark:border-slate-800/60">
-            {text}
+            {renderInline(text)}
           </h3>
         );
         return;
@@ -230,7 +299,7 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
         const text = line.trim().replace('## ', '');
         elements.push(
           <h2 key={`h2-${index}`} className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white pt-8 pb-3">
-            {text}
+            {renderInline(text)}
           </h2>
         );
         return;
@@ -241,7 +310,23 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
         const text = line.trim().replace('> ', '');
         elements.push(
           <div key={`quote-${index}`} className="my-5 p-4 sm:p-5 rounded-2xl bg-indigo-50/80 dark:bg-indigo-950/30 border-l-4 border-indigo-600 text-slate-800 dark:text-indigo-200 text-sm leading-relaxed italic">
-            {text}
+            {renderInline(text)}
+          </div>
+        );
+        return;
+      }
+
+      // Numbered items (e.g. "1. ")
+      const numMatch = line.trim().match(/^(\d+)\.\s+(.*)/);
+      if (numMatch) {
+        const num = numMatch[1];
+        const text = numMatch[2];
+        elements.push(
+          <div key={`num-${index}`} className="flex items-start gap-3 my-2.5 text-slate-700 dark:text-slate-300 text-sm leading-relaxed pl-2">
+            <span className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-indigo-200 dark:border-indigo-800">
+              {num}
+            </span>
+            <span>{renderInline(text)}</span>
           </div>
         );
         return;
@@ -253,7 +338,7 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
         elements.push(
           <div key={`bullet-${index}`} className="flex items-start gap-3 my-2 text-slate-700 dark:text-slate-300 text-sm leading-relaxed pl-2">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
-            <span>{text}</span>
+            <span>{renderInline(text)}</span>
           </div>
         );
         return;
@@ -267,7 +352,7 @@ export function BlogDetailClient({ slug }: BlogDetailClientProps) {
       // Regular paragraph
       elements.push(
         <p key={`p-${index}`} className="my-3 text-sm sm:text-base leading-relaxed text-slate-700 dark:text-slate-300">
-          {line}
+          {renderInline(line)}
         </p>
       );
     });

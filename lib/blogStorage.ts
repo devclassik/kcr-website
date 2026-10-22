@@ -1,7 +1,7 @@
 import { BlogPost, BlogPostInput } from '../types/blog';
 import { INITIAL_BLOG_POSTS } from '../data/blogData';
 
-const STORAGE_KEY = 'kcr_blog_posts_v5';
+const STORAGE_KEY = 'kcr_blog_posts_v6';
 const ADMIN_MODE_KEY = 'kcr_admin_mode_enabled';
 
 export function sortPostsChronologically(posts: BlogPost[]): BlogPost[] {
@@ -26,6 +26,16 @@ export function getStoredPosts(): BlogPost[] {
     }
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed) && parsed.length > 0) {
+      // Auto-merge any initial posts that might not be in localStorage
+      const missingInitial = INITIAL_BLOG_POSTS.filter(
+        (init) => !parsed.some((p: BlogPost) => p.id === init.id || p.slug === init.slug)
+      );
+      if (missingInitial.length > 0) {
+        const merged = [...missingInitial, ...parsed];
+        const sorted = sortPostsChronologically(merged);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(sorted));
+        return sorted;
+      }
       return sortPostsChronologically(parsed);
     }
     const sorted = sortPostsChronologically(INITIAL_BLOG_POSTS);
